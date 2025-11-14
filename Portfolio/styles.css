@@ -1,138 +1,48 @@
-/* Fullscreen section that takes the whole viewport */
-.section_main {
-    position: relative;
+/* =========================================
+   PORTFOLIO STYLES - MAIN (DESKTOP)
+   Organized by component for clarity
+   Mobile styles are in mobile.css
+   ========================================= */
+
+/* --- ROOT & GLOBAL --- */
+:root {
+    --color-bg: black;
+    --color-text: white;
+    --color-accent: yellow;
+    --anim-duration: 400ms;
+    --anim-ease: cubic-bezier(.2,.8,.2,1);
+}
+
+* {
     box-sizing: border-box;
-    width: 100vw;
-    height: 100vh;        /* fills the viewport height */
-    min-height: 0vh;    /* fallback */
-    overflow: hidden;     /* hide off-screen parts while animating */
-    padding: var(--section-padding, 2rem);
-    display: block;
-    background-color: white;
 }
 
-header{
-    color: yellow;
-    text-align: center;
-    position: relative; /* allow absolutely-positioned button inside */
-    padding: 1rem 1.25rem; /* keep some breathing room so button doesn't overlap text */
-}
-
-body{
-    background-color: black;
-}
-
-header h1 {
-    margin: 0; /* keep the title vertically centered inside header */
-    font-size: 1.5rem;
-}
-
-/* Wrapper to position nav and content side-by-side */
-.content-wrapper{
-    display: flex;           /* use flexbox to place nav and content side-by-side */
-    width: 100%;
-    padding-top: 9rem;       /* match the nav-column's top padding */
-}
-
-/* Navigation column: stacked items (no bullets) */
-.nav-column{
-    color: white;
-    text-align: left;
-    /* Reduce width from the right while keeping the left edge in place */
-    width: 13%;           /* adjust this percent to make the column narrower */
-    max-width: 520px;     /* optional cap so it doesn't grow too wide on large screens */
-    margin: 0;            /* keep left edge aligned with the page */
-    position: relative;   /* for the vertical divider pseudo-element */
-    /* Default padding for desktop */
-    padding: 0 1.25rem;   /* removed top padding since it's in wrapper now */
-    flex-shrink: 0;       /* prevent nav from shrinking */
-}
-
-/* Content area to the right of nav column */
-.content-area{
-    flex: 1;              /* take up remaining space */
-    color: white;
-    padding: 0 2rem;      /* add spacing inside the content area */
-    overflow-y: auto;     /* allow scrolling if content is long */
+body {
+    background-color: var(--color-bg);
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
 }
 
 a {
-    color: inherit;        /* makes link use the surrounding text color */
-    text-decoration: none; /* removes underline */
+    color: inherit;
+    text-decoration: none;
 }
 
-.nav-column .nav-item{
-    display: block;      /* one per line */
-    margin: 0 0 1.5rem 0; /* small gap between items */
-    font-size: 0.7rem;   /* change this value to adjust text size */
-    position: relative;  /* for the ::before pseudo-element */
-    cursor: pointer;
-    transition: transform 0.3s ease 0.1s; /* smooth slide on hover with 0.1s delay */
-    padding-left: 1.5rem;  /* make room for the line and expand hover area */
+/* --- HEADER --- */
+header {
+    color: var(--color-accent);
+    text-align: center;
+    position: relative;
+    padding: 1rem 1.25rem;
 }
 
-/* Animated line that appears before the text on hover */
-.nav-column .nav-item::before{
-    content: "";
-    position: absolute;
-    left: 0;             /* position at the left edge of the padding area */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;            /* start with 0 width */
-    height: 2px;
-    background: white;
-    transition: width 0.3s ease 0.1s; /* animate line with 0.1s delay */
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
 }
 
-/* Hover state: slide text right and expand the line */
-.nav-column .nav-item:hover{
-    transform: translateX(1rem); /* slide text to the right */
-}
-
-.nav-column .nav-item:hover::before{
-    width: 1.2rem;       /* expand line to full width on hover */
-}
-
-/* vertical divider at the right edge of the nav-column */
-.nav-column::after{
-    content: "";
-    position: absolute;
-    top: 2rem;            /* a little below the top padding */
-    right: 0;                /* align to the column's right edge */
-    height: calc(100% - 0.5rem); /* span most of the column height, leaving small gaps */
-    width: 1px;
-    background: rgba(255,255,255,0.85); /* white with less transparency */
-    opacity: 0.3;
-    border-radius: 1px;
-}
-
-/* On small screens, stack nav and content vertically */
-@media (max-width: 480px) {
-    .content-wrapper {
-        flex-direction: column; /* stack vertically */
-        padding-top: 0;
-    }
-    .nav-column {
-        width: 100%;
-        padding: 15vh 1rem 10vh 1rem; /* keep the mobile vertical spacing you wanted */
-        flex-shrink: 1;
-    }
-    .content-area {
-        width: 100%;
-        padding: 2rem 1rem;
-    }
-    .nav-column::after{
-        display: none;
-    }
-}
-
-/* Apply large top padding only on small screens so the nav sits further down */
-@media (max-width: 480px) {
-    .nav-column {
-        padding: 15vh 1rem 10vh 1rem; /* top right bottom left */
-    }
-}
-
+/* --- HEADER BUTTON (ROUND EMAIL BUTTON) --- */
 .header-btn {
     position: absolute;
     right: 1rem;
@@ -141,35 +51,110 @@ a {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    border: 2px solid yellow;       /* yellow border always visible */
+    border: 2px solid var(--color-accent);
+    background: linear-gradient(to bottom, var(--color-bg) 0%, var(--color-bg) 50%, var(--color-accent) 50%, var(--color-accent) 100%);
+    background-size: 100% 200%;
+    background-position: 0% 0%;
+    color: var(--color-accent);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.35);
-
-    /* --- sliding color setup --- */
-    background: linear-gradient(
-        to bottom,
-        black 0%,
-        black 50%,
-        yellow 50%,
-        yellow 100%
-    );
-    background-size: 100% 200%;     /* double height for sliding */
-    background-position: 0% 0%;     /* start from top (black) */
-
-    color: yellow;                  /* default text */
     transition: background-position 0.35s ease, color 0.35s ease;
 }
 
 .header-btn:hover {
-    background-position: 0% 100%;   /* slide downward to yellow */
-    color: black;                   /* swap text color */
+    background-position: 0% 100%;
+    color: var(--color-bg);
 }
 
-/* Small helper to keep inline text for screen-readers only */
+.header-btn svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+/* --- CONTENT WRAPPER (NAV + CONTENT SIDE-BY-SIDE) --- */
+.content-wrapper {
+    display: flex;
+    width: 100%;
+    padding-top: 9rem;
+    min-height: calc(100vh - 80px);
+}
+
+/* --- NAVIGATION COLUMN --- */
+.nav-column {
+    width: 13%;
+    max-width: 520px;
+    color: var(--color-text);
+    text-align: left;
+    padding: 0 1.25rem;
+    margin: 0;
+    position: relative;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.nav-column .nav-item {
+    display: block;
+    margin: 0 0 1.5rem 0;
+    font-size: clamp(0.5rem, 1.2vw, 0.9rem);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease 0.1s;
+    padding-left: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Animated line on hover */
+.nav-column .nav-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--color-text);
+    transition: width 0.3s ease 0.1s;
+}
+
+.nav-column .nav-item:hover {
+    transform: translateX(1rem);
+}
+
+.nav-column .nav-item:hover::before {
+    width: 1.2rem;
+}
+
+/* Vertical divider on the right edge */
+.nav-column::after {
+    content: "";
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    height: calc(100% - 0.5rem);
+    width: 1px;
+    background: rgba(255,255,255,0.85);
+    opacity: 0.3;
+    border-radius: 1px;
+    z-index: 100;
+}
+
+/* --- CONTENT AREA --- */
+.content-area {
+    flex: 1;
+    color: var(--color-text);
+    padding: 0 2rem;
+    overflow-y: auto;
+    position: relative;
+    z-index: 5;
+}
+
+/* --- UTILITY CLASSES --- */
 .sr-only {
     position: absolute !important;
     width: 1px;
@@ -182,68 +167,43 @@ a {
     border: 0;
 }
 
-/* SVG inside the button should follow currentColor and size nicely */
-.header-btn svg {
-    width: 18px;
-    height: 18px;
-    display: block;
-    flex: 0 0 auto;
-}
-
-
-.section_no_padding{
-    box-sizing: none;
-    padding: var(--section-padding, 0rm);
-}
-
-.section_header{
-    height: 5vh;
-    min-height: 5vh;
-    width: 100vh;
-}
-
-/* Animation configuration variables */
-:root {
-    --anim-duration: 400ms;
-    --anim-ease: cubic-bezier(.2,.8,.2,1);
-}
-
-/* Hint the browser which properties will change */
+/* --- ANIMATIONS & KEYFRAMES --- */
 .animate {
     will-change: opacity, transform;
 }
 
-/* Simple fades */
 .fade-in {
     animation: fadeIn var(--anim-duration) var(--anim-ease) forwards;
 }
+
 .fade-out {
     animation: fadeOut var(--anim-duration) var(--anim-ease) forwards;
 }
 
-/* Fade + move variants (separate classes for each direction) */
 .fade-in-up {
     animation: fadeInUp var(--anim-duration) var(--anim-ease) forwards;
 }
+
 .fade-in-down {
     animation: fadeInDown var(--anim-duration) var(--anim-ease) forwards;
 }
+
 .fade-in-right {
     animation: fadeInRight var(--anim-duration) var(--anim-ease) forwards;
 }
+
 .fade-in-left {
     animation: fadeInLeft var(--anim-duration) var(--anim-ease) forwards;
 }
 
-/* Optional slower / faster utility classes */
 .anim-slow { --anim-duration: 700ms; }
 .anim-fast { --anim-duration: 200ms; }
 
-/* Keyframes */
 @keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
 @keyframes fadeOut {
     from { opacity: 1; }
     to   { opacity: 0; }
@@ -259,6 +219,7 @@ a {
         transform: translateY(0);
     }
 }
+
 @keyframes fadeInDown {
     from {
         opacity: 0;
@@ -269,6 +230,7 @@ a {
         transform: translateY(0);
     }
 }
+
 @keyframes fadeInRight {
     from {
         opacity: 0;
@@ -279,6 +241,7 @@ a {
         transform: translateX(0);
     }
 }
+
 @keyframes fadeInLeft {
     from {
         opacity: 0;

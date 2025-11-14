@@ -1,0 +1,38 @@
+/* =========================================
+   PORTFOLIO STYLES - MOBILE
+   Mobile-specific overrides for screens <= 480px
+   ========================================= */
+
+@media (max-width: 1050px){
+    .nav-column{
+        display: none;
+    }
+
+    .nav-column::after{
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Content wrapper: stack vertically */
+    .content-wrapper {
+        flex-direction: column;
+        padding-top: 0;
+    }
+
+    /* Navigation: full width with spacing */
+    .nav-column {
+        display: none;
+    }
+
+    /* Hide vertical divider on mobile */
+    .nav-column::after {
+        display: none;
+    }
+
+    /* Content area: full width */
+    .content-area {
+        width: 100%;
+        padding: 2rem 1rem;
+    }
+}
