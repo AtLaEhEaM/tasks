@@ -1,0 +1,56 @@
+.section-fullscreen {
+    background-color: black;
+    color: var(--color-text);
+    padding: 4rem 2rem;
+    text-align: left; /* Align text to the left */
+    min-height: 100vh;
+    position: relative; /* Enable positioning for child elements */
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+    gap: 1rem; /* Add spacing between elements */
+}
+
+.section-fullscreen h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.section-fullscreen p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.section-fullscreen .about-team {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    padding: 0.25rem 8rem 0.5rem 0rem; /* Increased right padding */
+    font-size: 0.9rem;
+    display: inline-block;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.section-fullscreen .about-team::before {
+    content: "—";
+    margin-right: 0.5rem;
+    color: var(--color-text);
+}
+
+.section-fullscreen .section-fullscreen-text {
+    font-size: 1.7rem;
+    line-height: 1.8;
+    max-width: 750px;
+    text-align: left; /* Left-align the text */
+    flex-grow: 1; /* Allow the text to take up remaining space */
+    padding-right: 0; /* Removed right padding */
+    font-family: poppins, sans-serif;
+}
+
+.section-fullscreen .bottom-left-image {
+    position: absolute;
+    bottom: 1rem; /* Position the image 1rem from the bottom */
+    left: 1rem; /* Position the image 1rem from the left */
+    width: 150px; /* Adjust the width as needed */
+    height: auto;
+    object-fit: cover;
+}
+
