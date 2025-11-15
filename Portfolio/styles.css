@@ -82,6 +82,14 @@ header h1 {
     overflow: hidden;
 }
 
+/* --- GENERIC FULL-SCREEN SECTION --- */
+.section {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
 /* --- CONTENT WRAPPER (NAV + CONTENT SIDE-BY-SIDE) --- */
 .content-wrapper {
     display: flex;
@@ -201,6 +209,8 @@ header h1 {
     white-space: nowrap;
     border: 0;
 }
+
+
 
 /* --- ANIMATIONS & KEYFRAMES --- */
 .animate {
