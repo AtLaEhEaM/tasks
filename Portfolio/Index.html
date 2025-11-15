@@ -11,28 +11,32 @@
 <body>
   <header>
     <h1>BULBSOL.</h1>
-    <button class="header-btn" aria-label="Open menu">+</button>
+    <button class="header-btn" aria-label="Open menu">&#9993;</button>
   </header>
   <section class="hero-section">
     <div class="content-wrapper">
       <div class="nav-column">
-        <div class="nav-item"><a href="">ABOUT</a></div>
-        <div class="nav-item"><a href="">OUR EXPERIENCE</a></div>
-        <div class="nav-item"><a href="">CONTACT</a></div>
+        <div class="nav-item"><a href="#about" class="scroll-link">ABOUT</a></div>
+        <div class="nav-item"><a href="#experience" class="scroll-link">OUR EXPERIENCE</a></div>
+        <div class="nav-item"><a href="#contact" class="scroll-link">CONTACT</a></div>
       </div>
       <div class="content-area">
         <div class="content-section">
           <h2>Clean - Responsive - Websites</h2>
-          <p>elegant high quality fast websites at your service, we provide businesses the push they need to reach customers along with valuable data that ensures business growth and scale</p>
+          <p>Elegant, high-quality websites delivered fast. We give businesses the boost they need to reach customers and provide actionable data that drives growth and scale.
+          </p>
         </div>
       </div>
     </div>
   </section>
-  <section>1</section>
-  <section>2</section>
-  <section>3</section>
-  <section>4</section>
-  <section>5</section>
+  <section class="section-fullscreen" style="background-color: antiquewhite;" id="about">1</section>
+  <section class="section-fullscreen" style="background-color: blue;" id="experience">2</section>
+  <section class="section-fullscreen" style="background-color: orange;">3</section>
+  <section class="section-fullscreen" style="background-color: greenyellow;">4</section>
+  <section class="section-fullscreen" style="background-color: rgb(105, 45, 55);" id="contact">5</section>
+  
+  <!-- Floating scroll down button (sits on top of all sections) -->
+  <button class="scroll-to-next-btn" aria-label="Scroll down">&#9660;</button>
   <script src="script.js" defer></script>
 </body>
 </html>
