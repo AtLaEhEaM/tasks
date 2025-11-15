@@ -1,4 +1,4 @@
-.section-one {
+.section-fullscreen {
     background-color: black;
     color: var(--color-text);
     padding: 4rem 2rem;
@@ -10,17 +10,17 @@
     gap: 1rem; /* Add spacing between elements */
 }
 
-.section-one h2 {
+.section-fullscreen h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-.section-one p {
+.section-fullscreen p {
     font-size: 1.2rem;
     line-height: 1.6;
 }
 
-.section-one .about-team {
+.section-fullscreen .about-team {
     background-color: var(--color-bg);
     color: var(--color-text);
     padding: 0.25rem 8rem 0.5rem 0rem; /* Increased right padding */
@@ -29,13 +29,13 @@
     flex-shrink: 0; /* Prevent shrinking */
 }
 
-.section-one .about-team::before {
+.section-fullscreen .about-team::before {
     content: "—";
     margin-right: 0.5rem;
     color: var(--color-text);
 }
 
-.section-one .section-one-text {
+.section-fullscreen .section-fullscreen-text {
     font-size: 1.7rem;
     line-height: 1.8;
     max-width: 750px;
@@ -45,7 +45,7 @@
     font-family: poppins, sans-serif;
 }
 
-.section-one .bottom-left-image {
+.section-fullscreen .bottom-left-image {
     position: absolute;
     bottom: 1rem; /* Position the image 1rem from the bottom */
     left: 1rem; /* Position the image 1rem from the left */
