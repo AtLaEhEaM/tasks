@@ -134,9 +134,9 @@ header h1 {
 .nav-column::after {
     content: "";
     position: absolute;
-    top: 2rem;
+    top: 0rem;                          /* CHANGE THIS: move line up/down */
     right: 0;
-    height: calc(100% - 0.5rem);
+    height: 60%;                        /* CHANGE THIS: adjust line length (was calc(100% - 0.5rem)) */
     width: 1px;
     background: rgba(255,255,255,0.85);
     opacity: 0.3;
