@@ -3,30 +3,43 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio</title>
+  <meta name="description" content="BulbSol — elegant responsive websites, apps and branded digital experiences. Portfolio of projects, skills and contact form." />
+  <title>BulbSol — Portfolio</title>
   <link rel="icon" href="favicon.ico" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-k5mQ6Y..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="mobile.css" />
   <link rel="stylesheet" href="hamza.css" />
 </head>
 <body>
   <header>
-    <h1>BULBSOL.</h1>
-    <button class="header-btn" aria-label="Open menu">&#9993;</button>
+    <div class="header-inner">
+      <h1 class="brand">BULBSOL<span class="brand-dot">.</span></h1>
+      <nav class="top-nav" aria-label="Primary">
+        <a href="#about" class="top-link">About</a>
+        <a href="#projects" class="top-link">Projects</a>
+        <a href="#skills" class="top-link">Skills</a>
+        <a href="#contact" class="top-link">Contact</a>
+      </nav>
+      <a class="header-btn" href="#contact" aria-label="Contact us"><i class="fa-solid fa-envelope"></i></a>
+    </div>
   </header>
-  <section class="hero-section">
-    <div class="content-wrapper">
-      <div class="nav-column">
-        <div class="nav-item"><a href="#about" class="scroll-link">ABOUT</a></div>
-        <div class="nav-item"><a href="#experience" class="scroll-link">OUR EXPERIENCE</a></div>
-        <div class="nav-item"><a href="#contact" class="scroll-link">CONTACT</a></div>
-      </div>
-      <div class="content-area">
-        <div class="content-section">
-          <h2>Clean - Responsive - Websites</h2>
-          <p>Elegant, high-quality websites delivered fast. We give businesses the boost they need to reach customers and provide actionable data that drives growth and scale.
-          </p>
+  <section class="hero-section" id="home">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h2 class="hero-title">We design beautiful, fast and reliable websites</h2>
+        <p class="hero-sub">We build brands and digital products that help businesses connect with customers, grow and scale. Clean code, thoughtful UX and measurable results.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-outline" href="#contact">Get in touch</a>
         </div>
+      </div>
+      <div class="hero-image" aria-hidden="true">
+        <img src="hero-illustration.svg" alt="Illustration of responsive design" />
       </div>
     </div>
   </section>
@@ -47,11 +60,84 @@
       </div>
     </div>
   </section>
-  <section class="section-fullscreen" style="background-color: antiquewhite;" id="about">1</section>
-  <section class="section-fullscreen" style="background-color: blue;" id="experience">2</section>
-  <section class="section-fullscreen" style="background-color: orange;">3</section>
-  <section class="section-fullscreen" style="background-color: greenyellow;">4</section>
-  <section class="section-fullscreen" style="background-color: rgb(105, 45, 55);" id="contact">5</section>
+  <section class="section-fullscreen" id="about">
+    <h2>About BulbSol</h2>
+    <p class="lead">We’re on a mission to build meaningful software that solves real problems, serves communities, and makes life simpler.</p>
+    <div class="about-grid">
+      <div class="about-left">
+        <img src="logo.jpg" alt="BulbSol logo" class="about-logo" />
+      </div>
+      <div class="about-right">
+        <p>At BulbSol, our team combines UX, design and engineering to deliver digital products that perform. We focus on pragmatic solutions with elegant interfaces — from launchable MVPs to production-ready platforms.</p>
+        <p>We’ve delivered over 100+ projects and work closely with startups and established businesses to create measurable impact.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-fullscreen" id="projects">
+    <h2>Selected Projects</h2>
+    <div class="projects-grid">
+      <article class="project-card">
+        <img src="project1.jpg" alt="Project 1 screenshot" />
+        <h3>Brand Refresh + E‑commerce</h3>
+        <p>Design and build of an accessible online store with conversion-focused UI and fast checkout.</p>
+      </article>
+      <article class="project-card">
+        <img src="project2.jpg" alt="Project 2 screenshot" />
+        <h3>Analytics Dashboard</h3>
+        <p>Custom reporting dashboard for business owners to track growth metrics and ROI.</p>
+      </article>
+      <article class="project-card">
+        <img src="project3.jpg" alt="Project 3 screenshot" />
+        <h3>Booking Platform</h3>
+        <p>Responsive web app with secure bookings, reminders and admin tools.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-fullscreen" id="skills">
+    <h2>Skills & Tools</h2>
+    <div class="skills-list">
+      <span class="skill">HTML</span>
+      <span class="skill">CSS</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">React</span>
+      <span class="skill">Node.js</span>
+      <span class="skill">Figma</span>
+      <span class="skill">Accessibility</span>
+    </div>
+  </section>
+
+  <section class="section-fullscreen" id="contact">
+    <h2>Contact</h2>
+    <p class="lead">Interested in working together? Send a quick message and we’ll reply within 48 hours.</p>
+    <div class="contact-grid">
+      <form id="contact-form" class="contact-form" aria-label="Contact form" data-formspree="">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+
+        <button type="submit" class="btn btn-primary">Send message</button>
+        <div id="form-status" role="status" aria-live="polite"></div>
+      </form>
+
+      <div class="contact-info">
+        <h3>Get in touch</h3>
+        <p>Email: <a href="mailto:hello@bulbsol.example">hello@bulbsol.example</a></p>
+        <p>Phone: <a href="tel:+10000000000">+1 (000) 000‑0000</a></p>
+        <p>Location: Remote — available worldwide</p>
+        <div class="socials">
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
   
   <!-- Floating scroll down button (sits on top of all sections) -->
   <button class="scroll-to-next-btn" aria-label="Scroll down">&#9660;</button>

@@ -33,6 +33,23 @@
     }
 }
 
+/* Small screens: adjust hero, projects and contact layout */
+@media (max-width: 900px) {
+    .hero-inner { flex-direction: column; padding: 3rem 1rem; text-align: center; }
+    .hero-image { display: none; }
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
+    .top-nav { display: none; }
+    .header-inner { justify-content: space-between; }
+}
+
+@media (max-width: 600px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 1.5rem; }
+    .about-grid { display:block; }
+    .section-fullscreen { padding: 2rem 1rem; }
+}
+
 /* Between 600px and 1050px: show navbar but hide the line */
 @media (min-width: 600px) and (max-width: 1050px) {
     .nav-column::after {

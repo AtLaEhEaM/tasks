@@ -111,3 +111,14 @@
     align-self: center; /* Center the divider between the stat blocks */
 }
 
+/* Additional helpers for new layout */
+.about-grid { display:flex; gap:1rem; align-items:flex-start; }
+.about-logo { width: 320px; max-width: 40%; height: auto; border-radius:8px; object-fit:cover; }
+.about-right { max-width: 60%; }
+
+@media (max-width: 900px) {
+    .about-grid { display:block; }
+    .about-logo { width: 100%; max-width: none; margin-bottom: 1rem; }
+    .about-right { max-width: 100%; }
+}
+
